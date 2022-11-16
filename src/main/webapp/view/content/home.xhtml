@@ -97,7 +97,14 @@
 
 
 
-
+                     <h:panelGrid id="idPanel" columns="2">
+                        <p:outputLabel value="Ingrese su correo: "></p:outputLabel>
+                        <p:inputText id="idRol" value="#{usuario.rol.correo}"></p:inputText>
+                        <p:commandButton action="#{usuario.crearRegistro()}"
+                                         value="Guardar Registro"
+                                         update=""
+                                         ></p:commandButton>
+                    </h:panelGrid>
 
                     <h:panelGrid id="idPanel" columns="2">
                         <p:outputLabel value="Ingrese el rol: "></p:outputLabel>
@@ -107,6 +114,9 @@
                                          update=""
                                          ></p:commandButton>
                     </h:panelGrid>
+                    
+                    
+                   
 
 
 
