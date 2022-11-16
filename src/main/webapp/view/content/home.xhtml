@@ -116,7 +116,15 @@
                     </h:panelGrid>
                     
                     
-                   
+                     <h:panelGrid id="idPanel" columns="2">
+                        <p:outputLabel value="Ingrese la contraseña: "></p:outputLabel>
+                        <p:inputText id="idRol" value="#{usuario.rol.contrasena}"></p:inputText>
+                        <p:commandButton action="#{usuario.crearRegistro()}"
+                                         value="Guardar Registro"
+                                         update=""
+                                         ></p:commandButton>
+                    </h:panelGrid>
+                    
 
 
 
