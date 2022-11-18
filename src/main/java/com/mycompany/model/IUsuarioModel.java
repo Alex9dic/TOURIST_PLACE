@@ -12,4 +12,6 @@ import java.util.List;
 public interface IUsuarioModel {
     public void insertarRegistro(Usuario usuario);
     public List<Usuario> obtenerRegistro();
+    public void actualizarRegistro(Usuario usuario);
+    public void eliminarRegistro(Usuario usuario);
 }

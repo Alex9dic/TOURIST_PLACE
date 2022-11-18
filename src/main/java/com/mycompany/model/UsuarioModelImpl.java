@@ -60,4 +60,23 @@ public class UsuarioModelImpl implements IUsuarioModel {
         }
         return listaRol;
     }
+
+    @Override
+    public void actualizarRegistro(Usuario usuario) {
+                try {
+            sf = new Configuration().configure().buildSessionFactory();
+            sesion = sf.openSession();
+            sesion.beginTransaction();
+            sesion.update(usuario);
+            sesion.getTransaction().commit();
+            sesion.close();
+        } catch (HibernateException e) {
+            System.out.println("Error" + e.getMessage());
+        }
+    }
+
+    @Override
+    public void eliminarRegistro(Usuario usr) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

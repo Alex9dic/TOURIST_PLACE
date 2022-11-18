@@ -11,6 +11,8 @@ import java.util.List;
 
 public interface IUsuarioService {
     public void insertarRegistro(Usuario usuario);
+    public void actualizarRegistro(Usuario usuario);
+    public void eliminarRegistro(Usuario usuario);
     public List<Usuario> obtenerRegistro();
     
 }
