@@ -20,10 +20,19 @@ import org.primefaces.event.RowEditEvent;
 
 @RequestScoped
 @ManagedBean(name = "usuario")
-public class UsuarioController implements Serializable{
-    private  IUsuarioService service;
-    public  Usuario usuario;
-    private  List<Usuario> listaRegistros;
+public class UsuarioController implements Serializable {
+
+    private IUsuarioService service;
+    public Usuario usuario;
+    private List<Usuario> listaRegistros;
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 
     public Usuario getRol() {
         return usuario;
@@ -34,16 +43,25 @@ public class UsuarioController implements Serializable{
     }
 
     @PostConstruct
-    public  void init() {
+    public void init() {
         service = new UsuarioServiceImpl();
         usuario = new Usuario();
         listaRegistros = service.obtenerRegistro();
     }
-    
-    public void onRowEDit(RowEditEvent event){
+
+    public void onRowEDit(RowEditEvent event) {
+        Usuario usuario = (Usuario) event.getObject();
+        service.actualizarRegistro(usuario);
         FacesMessage mensaje = new FacesMessage("Registro editado exitosamente");
         FacesContext.getCurrentInstance().addMessage(null, mensaje);
-        
+
+    }
+
+    public void eliminarRegistro(Usuario usuario) {
+        service.eliminarRegistro(usuario);
+        FacesMessage mensaje = new FacesMessage("Registro eliminado exitosamente");
+        FacesContext.getCurrentInstance().addMessage(null, mensaje);
+        System.out.println("Eliminado"+usuario.getIdusuario());
     }
 
     public void crearRegistro() {

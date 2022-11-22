@@ -18,7 +18,9 @@
                         <p:dataTable id="idTabla" var="registro" value="#{usuario.listaRegistros}" editable="true"
                                      style="margin-bottom:20px">
 
+                            
                             <p:ajax event="rowEdit" listener="#{usuario.onRowEDit}" update=":form:mimensaje"/>
+                            
                             <!--                            <p:ajax event="rowEditCancel" listener="#" update=":form:msgs"/>-->
 
                             <p:column headerText="idUsuario">
@@ -54,7 +56,7 @@
                                 </p:cellEditor>
                             </p:column> 
 
-                            <p:column headerText="Correo">
+                            <p:column headerText="Usuario">
                                 <p:cellEditor>
                                     <f:facet name="output">
                                         <h:outputText value="#{registro.usuario}"/>
@@ -65,7 +67,7 @@
                                 </p:cellEditor>
                             </p:column>
 
-                            <p:column headerText="Correo">
+                            <p:column headerText="Contraseña">
                                 <p:cellEditor>
                                     <f:facet name="output">
                                         <h:outputText value="#{registro.contrasena}"/>
@@ -82,33 +84,30 @@
                                              cancelTitle="Cancel Edit" 
                                              saveTitle="Save Row"/>
                             </p:column>
+                            
+                             <p:column headerText="Eliminar">
+                                 <p:commandButton action="#{usuario.eliminarRegistro(registro)}"
+                                         value="Eliminar"
+                                         update=":form:mimensaje"
+                                         ></p:commandButton>
+                            </p:column>
                         </p:dataTable>
                     </div><!-- Fin de la Tabla -->
                     <!-- Inicio boton -->
 
                     <h:panelGrid id="idPanel" columns="2">
                         <p:outputLabel value="Ingrese el nombre: "></p:outputLabel>
-                        <p:inputText id="idRol" value="#{usuario.rol.nombre}"></p:inputText>
-                        <p:commandButton action="#{usuario.crearRegistro()}"
-                                         value="Guardar Registro"
-                                         update=""
-                                         ></p:commandButton>
-                    </h:panelGrid>
-
-
-
-                     <h:panelGrid id="idPanel" columns="2">
+                        <p:inputText id="idNombre" value="#{usuario.usuario.nombre}"></p:inputText>
+                        
                         <p:outputLabel value="Ingrese su correo: "></p:outputLabel>
-                        <p:inputText id="idRol" value="#{usuario.rol.correo}"></p:inputText>
-                        <p:commandButton action="#{usuario.crearRegistro()}"
-                                         value="Guardar Registro"
-                                         update=""
-                                         ></p:commandButton>
-                    </h:panelGrid>
-
-                    <h:panelGrid id="idPanel" columns="2">
+                        <p:inputText id="idCorreo" value="#{usuario.usuario.correo}"></p:inputText>
+                        
                         <p:outputLabel value="Ingrese el rol: "></p:outputLabel>
-                        <p:inputText id="idRol" value="#{usuario.rol.usuario}"></p:inputText>
+                        <p:inputText id="idRol" value="#{usuario.usuario.usuario}"></p:inputText>
+                        
+                        <p:outputLabel value="Ingrese la contrasenia: "></p:outputLabel>
+                        <p:inputText id="idContrasena" value="#{usuario.usuario.contrasena}"></p:inputText>
+                        
                         <p:commandButton action="#{usuario.crearRegistro()}"
                                          value="Guardar Registro"
                                          update=""
@@ -116,29 +115,7 @@
                     </h:panelGrid>
                     
                     
-                     <h:panelGrid id="idPanel" columns="2">
-                        <p:outputLabel value="Ingrese la contraseña: "></p:outputLabel>
-                        <p:inputText id="idRol" value="#{usuario.rol.contrasena}"></p:inputText>
-                        <p:commandButton action="#{usuario.crearRegistro()}"
-                                         value="Guardar Registro"
-                                         update=""
-                                         ></p:commandButton>
-                    </h:panelGrid>
                     
-
-
-
-
-
-
-
-                    <!-- Fin boton -->
-
-
-
-
-
-
                 </h:form>
             </ui:define>
 

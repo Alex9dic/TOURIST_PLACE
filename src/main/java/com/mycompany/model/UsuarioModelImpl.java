@@ -39,12 +39,14 @@ public class UsuarioModelImpl implements IUsuarioModel {
     public static void main(String[] args) {
         IUsuarioModel modelo = new UsuarioModelImpl();
         Usuario user = new Usuario();
-        user.setNombre("Juan");
-        user.setCorreo("jn23@gmail.com");
+//        user.setIdusuario(2);
+        user.setNombre("Daniel");
+        user.setCorreo("alx23@gmail.com");
         user.setUsuario("Admin");
         user.setContrasena("12der");
         modelo.insertarRegistro(user);
-        System.out.println("Ingresado correctamente");
+        modelo.actualizarRegistro(user);
+//        modelo.eliminarRegistro(user);
     }
 
     @Override
@@ -63,20 +65,31 @@ public class UsuarioModelImpl implements IUsuarioModel {
 
     @Override
     public void actualizarRegistro(Usuario usuario) {
-                try {
+        try {
             sf = new Configuration().configure().buildSessionFactory();
             sesion = sf.openSession();
             sesion.beginTransaction();
             sesion.update(usuario);
             sesion.getTransaction().commit();
             sesion.close();
+            System.out.println("Actualizado");
         } catch (HibernateException e) {
             System.out.println("Error" + e.getMessage());
         }
     }
 
     @Override
-    public void eliminarRegistro(Usuario usr) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void eliminarRegistro(Usuario usuario) {
+        try {
+            sf = new Configuration().configure().buildSessionFactory();
+            sesion = sf.openSession();
+            sesion.beginTransaction();
+            sesion.delete(usuario);
+            sesion.getTransaction().commit();
+            sesion.close();
+            System.out.println("Eliminado");
+        } catch (HibernateException e) {
+            System.out.println("Error" + e.getMessage());
+        }
     }
 }

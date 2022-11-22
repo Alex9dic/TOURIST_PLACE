@@ -31,6 +31,6 @@ public class UsuarioServiceImpl implements IUsuarioService{
 
     @Override
     public void eliminarRegistro(Usuario usuario) {
-        
+        model.eliminarRegistro(usuario);
     }
 }
