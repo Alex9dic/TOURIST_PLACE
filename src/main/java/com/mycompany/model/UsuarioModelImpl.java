@@ -45,7 +45,7 @@ public class UsuarioModelImpl implements IUsuarioModel {
         user.setUsuario("Admin");
         user.setContrasena("12der");
         modelo.insertarRegistro(user);
-        modelo.actualizarRegistro(user);
+        //modelo.actualizarRegistro(user);
 //        modelo.eliminarRegistro(user);
     }
 
