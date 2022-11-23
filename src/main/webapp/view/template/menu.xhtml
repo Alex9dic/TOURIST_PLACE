@@ -10,11 +10,11 @@
 
         <ui:composition>
           <h:outputLink value="#{request.contextPath}/faces/view/content/home.xhtml" 
-                      class="nav-link">Home</h:outputLink><br></br>
+                      class="nav-link"></h:outputLink><br></br>
         <h:outputLink value="#{request.contextPath}/faces/view/content/alumno.xhtml" 
-                      class="nav-link">Alumno</h:outputLink><br></br>
+                      class="nav-link"></h:outputLink><br></br>
         <h:outputLink value="#{request.contextPath}/faces/view/content/profesor.xhtml" 
-                      class="nav-link">Profesor</h:outputLink><br></br>
+                      class="nav-link"></h:outputLink><br></br>
         
 
         <div class="card">
@@ -24,9 +24,9 @@
                     <p:submenu label="File" icon="pi pi-fw pi-file">
                         <p:menuitem value="Home" icon="pi pi-home" action="/view/content/home.xhtml"/>
                         <p:divider />
-                        <p:menuitem value="Alumno" icon="pi pi-users" action="/view/content/alumno.xhtml"/>
+                        <p:menuitem value="Reservaciones" icon="pi pi-book" action="/view/content/alumno.xhtml"/>
                         <p:divider />
-                        <p:menuitem value="Profesor" icon="pi pi-users" style="font-size: 1rem" action="/view/content/profesor.xhtml"/>
+                        <p:menuitem value="Datos" icon="pi pi-database" style="font-size: 1rem" action="/view/content/profesor.xhtml"/>
                     </p:submenu>
                     <p:divider layout="vertical"/>
 

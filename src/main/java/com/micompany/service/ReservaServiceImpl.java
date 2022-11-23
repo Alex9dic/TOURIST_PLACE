@@ -7,10 +7,7 @@ package com.micompany.service;
 import com.mycompany.entity.Reservaciones;
 import java.util.List;
 
-/**
- *
- * @author labso11
- */
+
 public class ReservaServiceImpl implements IReservaService{
 
     @Override
