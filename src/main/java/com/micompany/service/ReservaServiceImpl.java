@@ -5,29 +5,31 @@
 package com.micompany.service;
 
 import com.mycompany.entity.Reservaciones;
+import com.mycompany.model.IReservaModel;
+import com.mycompany.model.ReservaModelImpl;
 import java.util.List;
 
 
 public class ReservaServiceImpl implements IReservaService{
-
+    private IReservaModel model = new ReservaModelImpl();
     @Override
     public void insertarRegistro(Reservaciones reserva) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+         model.insertarRegistro(reserva);
     }
 
     @Override
     public void actualizarRegistro(Reservaciones reserva) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        model.actualizarRegistro(reserva);
     }
 
     @Override
     public void eliminarRegistro(Reservaciones reserva) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        model.eliminarRegistro(reserva);
     }
 
     @Override
     public List<Reservaciones> obtenerRegistro() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       return model.obtenerRegistro(); 
     }
     
 }
