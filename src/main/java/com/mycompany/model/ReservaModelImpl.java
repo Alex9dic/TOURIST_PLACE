@@ -34,6 +34,21 @@ public class ReservaModelImpl implements IReservaModel{
             System.out.println("Error" + e.getMessage());
         }
     }
+    
+    public static void main(String[] args) {
+        IReservaModel modelo = new ReservaModelImpl();
+        Reservaciones reserva = new Reservaciones();
+//        user.setIdusuario(2);
+        reserva.setNombre("Daniel");
+        reserva.setCorreo("alx23@gmail.com");
+        reserva.setTelefono(1234565434);
+        reserva.setLugar("Etla");
+        reserva.setCantpersonas(5);
+        reserva.setAnticipo(560.50);
+        modelo.insertarRegistro(reserva);
+        //modelo.actualizarRegistro(user);
+//        modelo.eliminarRegistro(user);
+    }
 
     @Override
     public List<Reservaciones> obtenerRegistro() {

@@ -1,0 +1,187 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./../template/index.xhtml">
+            <ui:define name="content">
+                <!-- Tabla de Primefaces -->
+                <h:form id="form">
+                    <p:growl id="mimensaje" showDetail="true"/>
+                    <div class="card">
+                        <h5 style="text-align: center;">Reservaciones</h5>
+
+                        <!-- Inicio boton -->
+                        <h:panelGrid id="idPanel" columns="2">
+                            <p:outputLabel value="Ingrese el nombre: "></p:outputLabel>
+                            <p:inputText id="idNombre" value="#{reservaciones.reserva.nombre}" required="true"></p:inputText>
+
+                            <p:outputLabel value="Ingrese su correo: "></p:outputLabel>
+                            <p:inputText id="idCorreo" value="#{reservaciones.reserva.correo}" required="true"></p:inputText>
+
+                            <p:outputLabel value="Ingrese el telefono "></p:outputLabel>
+                            <p:inputText id="idTelefono" value="#{reservaciones.reserva.telefono}" required="true"></p:inputText>
+
+                            <p:outputLabel value="Ingrese el lugar "></p:outputLabel>
+                            <p:inputText id="idLugar" value="#{reservaciones.reserva.lugar}" rendered="true"></p:inputText>
+
+                            <p:outputLabel value="Cantidad de personas "></p:outputLabel>
+                            <p:inputText id="idCantPersonas" value="#{reservaciones.reserva.cantpersonas}" required="true"></p:inputText>
+
+                            <p:outputLabel value="Anticipo"></p:outputLabel>
+                            <p:inputText id="idAnticipo" value="#{reservaciones.reserva.anticipo}" required="true"></p:inputText>
+
+                            <p:commandButton action="#{reservaciones.crearRegistro()}"
+                                             value="Guardar Registro"
+                                             update=":form:mimensaje"
+                                             ></p:commandButton>
+                        </h:panelGrid>
+                        <!-- ENVIA A LA BASE DE DATOS -->
+                        <div class="confor">
+                            <p>Formulario de contacto</p>
+                            <form action="/action_page_binary.asp" method="post">
+                                <label for="fname">Nombre:</label><br/>
+                                    <input class="cant" type="text" id="fname" name="fname" value=""/><br/>
+                                        <label for="username">Correo:</label><br/>
+                                            <input class="cant" type="text" id="username" name="username"/><br/>
+                                                <div class="ctn-btn">
+                                                    <button class="btn" type="reset">Borrar</button>
+                                                    <button class="btnn" type="submit">Enviar</button>
+                                                </div>
+                                                </form>
+                                                </div>
+
+                                                <!--Fin boton-->
+
+                                                <!--Inicio tabla-->
+                                                <p:dataTable id="idTabla" var="registro" value="#{reservaciones.listaRegistros}" editable="true"
+                                                             style="margin-bottom:20px">
+                                                    <p:ajax event="rowEdit" listener="#{reservaciones.onRowEDit}" update=":form:mimensaje"/>
+
+                                                    <!--                            <p:ajax event="rowEditCancel" listener="#" update=":form:msgs"/>-->
+                                                    <p:column headerText="idUsuario">
+                                                        <p:cellEditor>
+                                                            <f:facet name="output">
+                                                                <h:outputText value="#{registro.idreserva}"/>
+                                                            </f:facet>
+                                                            <f:facet name="input">
+                                                                <p:inputText id="modelInput" value="#{registro.idreserva}" style="width:100%"/>
+                                                            </f:facet>
+                                                        </p:cellEditor>
+                                                    </p:column>
+
+                                                    <p:column headerText="Nombre">
+                                                        <p:cellEditor>
+                                                            <f:facet name="output">
+                                                                <h:outputText value="#{registro.nombre}"/>
+                                                            </f:facet>
+                                                            <f:facet name="input">
+                                                                <p:inputText value="#{registro.nombre}" style="width:100%" label="Name"/>
+                                                            </f:facet>
+                                                        </p:cellEditor>
+                                                    </p:column>
+
+                                                    <p:column headerText="Correo">
+                                                        <p:cellEditor>
+                                                            <f:facet name="output">
+                                                                <h:outputText value="#{registro.correo}"/>
+                                                            </f:facet>
+                                                            <f:facet name="input">
+                                                                <p:inputText value="#{registro.correo}" style="width:100%" label="Name"/>
+                                                            </f:facet>
+                                                        </p:cellEditor>
+                                                    </p:column> 
+
+                                                    <p:column headerText="Telefono">
+                                                        <p:cellEditor>
+                                                            <f:facet name="output">
+                                                                <h:outputText value="#{registro.telefono}"/>
+                                                            </f:facet>
+                                                            <f:facet name="input">
+                                                                <p:inputText value="#{registro.telefono}" style="width:100%" label="Name"/>
+                                                            </f:facet>
+                                                        </p:cellEditor>
+                                                    </p:column>
+
+                                                    <p:column headerText="Lugar">
+                                                        <p:cellEditor>
+                                                            <f:facet name="output">
+                                                                <h:outputText value="#{registro.lugar}"/>
+                                                            </f:facet>
+                                                            <f:facet name="input">
+                                                                <p:inputText value="#{registro.lugar}" style="width:100%" label="Name"/>
+                                                            </f:facet>
+                                                        </p:cellEditor>
+                                                    </p:column>
+
+                                                    <p:column headerText="Personas">
+                                                        <p:cellEditor>
+                                                            <f:facet name="output">
+                                                                <h:outputText value="#{registro.cantpersonas}"/>
+                                                            </f:facet>
+                                                            <f:facet name="input">
+                                                                <p:inputText value="#{registro.cantpersonas}" style="width:100%" label="Name"/>
+                                                            </f:facet>
+                                                        </p:cellEditor>
+                                                    </p:column>
+
+                                                    <p:column headerText="Anticipo">
+                                                        <p:cellEditor>
+                                                            <f:facet name="output">
+                                                                <h:outputText value="#{registro.anticipo}"/>
+                                                            </f:facet>
+                                                            <f:facet name="input">
+                                                                <p:inputText value="#{registro.anticipo}" style="width:100%" label="Name"/>
+                                                            </f:facet>
+                                                        </p:cellEditor>
+                                                    </p:column>
+
+                                                    <p:column style="width:6rem">
+                                                        <p:rowEditor editTitle="Edit Row" 
+                                                                     cancelTitle="Cancel Edit" 
+                                                                     saveTitle="Save Row"/>
+                                                    </p:column>
+
+                                                    <p:column headerText="Eliminar">
+                                                        <p:commandButton action="#{reservaciones.eliminarRegistro(registro)}"
+                                                                         value="Eliminar"
+                                                                         update=":form:mimensaje"
+                                                                         ></p:commandButton>
+                                                    </p:column>
+                                                </p:dataTable>
+                                                </div>
+                                                <!-- Fin de la Tabla -->
+
+
+                                                </h:form>
+                                                <div class="birthdaycard">
+
+                                                    <div class="cardfront">
+                                                        <h3 class="happy">Bienvenido!</h3>
+
+                                                        <div class="balloons">
+                                                            <div class="balloon1"></div>
+                                                        </div><!-- end balloons -->
+                                                    </div><!-- end cardfront -->
+                                                    <div class="cardinside">
+                                                        <h3 class="back">Datos!</h3>
+                                                        <p>Reserva</p>
+
+
+
+                                                        <p class="name">xxx</p>
+                                                    </div><!-- end cardinside -->
+                                                </div><!-- end birthdaycard -->
+                                                </ui:define>
+                                                </ui:composition>
+
+                                                </body>
+                                                <footer>
+                                                    <h4><a href="https://www.youtube.com/watch?v=RQdoY-rppz8">Tutorial by Lena Design</a></h4>
+                                                </footer>
+                                                </html>
