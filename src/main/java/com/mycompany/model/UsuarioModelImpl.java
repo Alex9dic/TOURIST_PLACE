@@ -13,15 +13,13 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-/**
- *
- * @author Alex Ram
- */
+/*Implementacion de metodos abstractos*/
 public class UsuarioModelImpl implements IUsuarioModel {
 
     private SessionFactory sf;
     private Session sesion;
 
+    /*Insercion de datos*/
     @Override
     public void insertarRegistro(Usuario usuario) {
         try {
@@ -36,19 +34,7 @@ public class UsuarioModelImpl implements IUsuarioModel {
         }
     }
 
-    public static void main(String[] args) {
-        IUsuarioModel modelo = new UsuarioModelImpl();
-        Usuario user = new Usuario();
-//        user.setIdusuario(2);
-        user.setNombre("Daniel");
-        user.setCorreo("alx23@gmail.com");
-        user.setUsuario("Admin");
-        user.setContrasena("12der");
-        modelo.insertarRegistro(user);
-        //modelo.actualizarRegistro(user);
-//        modelo.eliminarRegistro(user);
-    }
-
+    /*Método obtener registros*/
     @Override
     public List<Usuario> obtenerRegistro() {
         List<Usuario> listaRol = null;
@@ -63,6 +49,7 @@ public class UsuarioModelImpl implements IUsuarioModel {
         return listaRol;
     }
 
+    /*Actualización de registros*/
     @Override
     public void actualizarRegistro(Usuario usuario) {
         try {
@@ -78,6 +65,7 @@ public class UsuarioModelImpl implements IUsuarioModel {
         }
     }
 
+    /*Eliminación de registros*/
     @Override
     public void eliminarRegistro(Usuario usuario) {
         try {

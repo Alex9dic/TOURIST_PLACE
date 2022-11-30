@@ -1,9 +1,12 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ Universidad de la Sierra Sur 
+ Licenciatura en Informática
+ Equipo: workboot
+ Proyecto: Tourist Places: Mostrar la belleza de Oaxaca 
  */
 package com.mycompany.model;
 
+/*Librerias utilizadas*/
 import com.mycompany.entity.Reservaciones;
 import java.util.List;
 import org.hibernate.HibernateException;
@@ -11,19 +14,16 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-/**
- *
- * @author labso11
- */
-public class ReservaModelImpl implements IReservaModel{
-    
+/*Implementacion de metodos abstractos*/
+public class ReservaModelImpl implements IReservaModel {
+
     private SessionFactory sf;
     private Session sesion;
-    
 
+    /*Metodod insertar*/
     @Override
     public void insertarRegistro(Reservaciones reserva) {
-      try {
+        try {
             sf = new Configuration().configure().buildSessionFactory();
             sesion = sf.openSession();
             sesion.beginTransaction();
@@ -34,25 +34,11 @@ public class ReservaModelImpl implements IReservaModel{
             System.out.println("Error" + e.getMessage());
         }
     }
-    
-    public static void main(String[] args) {
-        IReservaModel modelo = new ReservaModelImpl();
-        Reservaciones reserva = new Reservaciones();
-//        user.setIdusuario(2);
-        reserva.setNombre("Daniel");
-        reserva.setCorreo("alx23@gmail.com");
-        reserva.setTelefono(1234565434);
-        reserva.setLugar("Etla");
-        reserva.setCantpersonas(5);
-        reserva.setAnticipo(560.50);
-        modelo.insertarRegistro(reserva);
-        //modelo.actualizarRegistro(user);
-//        modelo.eliminarRegistro(user);
-    }
 
+    /*Metodo para obtener registros*/
     @Override
     public List<Reservaciones> obtenerRegistro() {
-         List<Reservaciones> listaRol = null;
+        List<Reservaciones> listaRol = null;
         try {
             sf = new Configuration().configure().buildSessionFactory();
             sesion = sf.openSession();
@@ -64,6 +50,7 @@ public class ReservaModelImpl implements IReservaModel{
         return listaRol;
     }
 
+    /*Metodo para actualizar registro*/
     @Override
     public void actualizarRegistro(Reservaciones reserva) {
         try {
@@ -79,6 +66,7 @@ public class ReservaModelImpl implements IReservaModel{
         }
     }
 
+    /*Metodo para eliminación*/
     @Override
     public void eliminarRegistro(Reservaciones reserva) {
         try {
@@ -93,5 +81,5 @@ public class ReservaModelImpl implements IReservaModel{
             System.out.println("Error" + e.getMessage());
         }
     }
-    
+
 }

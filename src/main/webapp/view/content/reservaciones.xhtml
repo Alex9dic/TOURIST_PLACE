@@ -19,28 +19,42 @@
                         <!-- Inicio boton -->
                         <div class="confor">
                             <h:panelGrid id="idPanel" columns="2">
-                                <p:outputLabel value="Ingrese el nombre: "></p:outputLabel>
-                                <p:inputText id="idNombre" value="#{reservaciones.reserva.nombre}" required="true" ></p:inputText>
+                                <p:outputLabel value="Ingrese el nombre: ">
+                                </p:outputLabel>
+                                <p:inputText id="idNombre" 
+                                             value="#{reservaciones.reserva.nombre}" 
+                                             required="true" ></p:inputText>
 
-                                <p:outputLabel value="Ingrese su correo: "></p:outputLabel>
-                                <p:inputText id="idCorreo" value="#{reservaciones.reserva.correo}" required="true"></p:inputText>
+                                <p:outputLabel value="Ingrese su correo: ">
+                                </p:outputLabel>
+                                <p:inputText id="idCorreo" 
+                                             value="#{reservaciones.reserva.correo}" 
+                                             required="true"></p:inputText>
 
-                                <p:outputLabel value="Ingrese el telefono "></p:outputLabel>
-                                <p:inputText id="idTelefono" value="#{reservaciones.reserva.telefono}" required="true" onkeypress="return event.charCode >= 48">
-                                <f:validateLength minimum="9"/>
+                                <p:outputLabel value="Ingrese el telefono ">
+                                </p:outputLabel>
+                                <p:inputText id="idTelefono"
+                                             value="#{reservaciones.reserva.telefono}" 
+                                             required="true" 
+                                             onkeypress="return
+                                                     event.charCode >= 48">
+                                    <f:validateLength minimum="9"/>
                                 </p:inputText>
 
-                                <p:outputLabel value="Ingrese el lugar "></p:outputLabel>
-                                <p:inputText id="idLugar" value="#{reservaciones.reserva.lugar}" rendered="true"></p:inputText>
+                                <p:outputLabel value="Ingrese el lugar ">
+                                </p:outputLabel>
+                                <p:inputText id="idLugar" 
+                                             value="#{reservaciones.reserva.lugar}" 
+                                             rendered="true"></p:inputText>
 
                                 <p:outputLabel value="Cantidad de personas "></p:outputLabel>
                                 <p:inputText id="idCantPersonas" value="#{reservaciones.reserva.cantpersonas}" required="true" onkeypress="return event.charCode >= 48">
-                                <f:validateLength minimum="1"/>
+                                    <f:validateLength minimum="1"/>
                                 </p:inputText>
 
                                 <p:outputLabel value="Anticipo"></p:outputLabel>
                                 <p:inputText id="idAnticipo" value="#{reservaciones.reserva.anticipo}" required="true" onkeypress="return event.charCode >= 48">
-                                <f:validateLongRange minimum="200" maximum="1000"/>
+                                    <f:validateLongRange minimum="200" maximum="1000"/>
                                 </p:inputText>
 
                                 <p:commandButton action="#{reservaciones.crearRegistro()}"
@@ -150,27 +164,7 @@
                         </p:dataTable>
                     </div>
                     <!-- Fin de la Tabla -->
-
-
                 </h:form>
-                <div class="birthdaycard">
-
-                    <div class="cardfront">
-                        <h3 class="happy">Bienvenido!</h3>
-
-                        <div class="balloons">
-                            <div class="balloon1"></div>
-                        </div><!-- end balloons -->
-                    </div><!-- end cardfront -->
-                    <div class="cardinside">
-                        <h3 class="back">Datos!</h3>
-                        <p>Reserva</p>
-
-
-
-                        <p class="name">xxx</p>
-                    </div><!-- end cardinside -->
-                </div><!-- end birthdaycard -->
             </ui:define>
         </ui:composition>
 
