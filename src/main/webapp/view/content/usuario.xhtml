@@ -34,11 +34,11 @@
                                 <p:outputLabel value="Ingrese el rol: "></p:outputLabel>
                                 <p:inputText id="idRol" value="#{usuario.usuario.usuario}" required="true"></p:inputText>
 
-                                <p:outputLabel value="Ingrese la contrasenia: "></p:outputLabel>
+                                <p:outputLabel value="Ingrese la contraseña: "></p:outputLabel>
                                 <p:password id="toggle" value="#{usuario.usuario.contrasena}" toggleMask="true" redisplay="true"/><br/>
 
                                 <p:commandButton action="#{usuario.crearRegistro()}"
-                                                 value="Guardar Registro"
+                                                 value="Guardar"
                                                  update=""
                                                  ></p:commandButton>
                             </h:panelGrid>

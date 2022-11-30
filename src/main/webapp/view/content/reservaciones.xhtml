@@ -31,7 +31,7 @@
                                              value="#{reservaciones.reserva.correo}" 
                                              required="true"></p:inputText>
 
-                                <p:outputLabel value="Ingrese el telefono ">
+                                <p:outputLabel value="Ingrese el teléfono: ">
                                 </p:outputLabel>
                                 <p:inputText id="idTelefono"
                                              value="#{reservaciones.reserva.telefono}" 
@@ -41,18 +41,18 @@
                                     <f:validateLength minimum="9"/>
                                 </p:inputText>
 
-                                <p:outputLabel value="Ingrese el lugar ">
+                                <p:outputLabel value="Ingrese el lugar: ">
                                 </p:outputLabel>
                                 <p:inputText id="idLugar" 
                                              value="#{reservaciones.reserva.lugar}" 
                                              rendered="true"></p:inputText>
 
-                                <p:outputLabel value="Cantidad de personas "></p:outputLabel>
+                                <p:outputLabel value="Cantidad de personas: "></p:outputLabel>
                                 <p:inputText id="idCantPersonas" value="#{reservaciones.reserva.cantpersonas}" required="true" onkeypress="return event.charCode >= 48">
                                     <f:validateLength minimum="1"/>
                                 </p:inputText>
 
-                                <p:outputLabel value="Anticipo"></p:outputLabel>
+                                <p:outputLabel value="Anticipo: "></p:outputLabel>
                                 <p:inputText id="idAnticipo" value="#{reservaciones.reserva.anticipo}" required="true" onkeypress="return event.charCode >= 48">
                                     <f:validateLongRange minimum="200" maximum="1000"/>
                                 </p:inputText>
@@ -105,7 +105,7 @@
                                 </p:cellEditor>
                             </p:column> 
 
-                            <p:column headerText="Telefono">
+                            <p:column headerText="Teléfono">
                                 <p:cellEditor>
                                     <f:facet name="output">
                                         <h:outputText value="#{registro.telefono}"/>
