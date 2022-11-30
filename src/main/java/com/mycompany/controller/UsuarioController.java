@@ -18,6 +18,7 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import org.primefaces.event.RowEditEvent;
 
+//Clase Implementadora
 @RequestScoped
 @ManagedBean(name = "usuario")
 public class UsuarioController implements Serializable {
@@ -49,6 +50,7 @@ public class UsuarioController implements Serializable {
         listaRegistros = service.obtenerRegistro();
     }
 
+    //Método para actualizar
     public void onRowEDit(RowEditEvent event) {
         Usuario usuario = (Usuario) event.getObject();
         service.actualizarRegistro(usuario);
@@ -57,17 +59,20 @@ public class UsuarioController implements Serializable {
 
     }
 
+    //Método para eliminar
     public void eliminarRegistro(Usuario usuario) {
         service.eliminarRegistro(usuario);
         FacesMessage mensaje = new FacesMessage("Registro eliminado exitosamente");
         FacesContext.getCurrentInstance().addMessage(null, mensaje);
-        System.out.println("Eliminado"+usuario.getIdusuario());
+        System.out.println("Eliminado" + usuario.getIdusuario());
     }
 
+    //Método para crear
     public void crearRegistro() {
         service.insertarRegistro(usuario);
     }
 
+    //Método para listar
     public List<Usuario> getListaRegistros() {
         return listaRegistros;
     }
