@@ -1,6 +1,8 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ Universidad de la Sierra Sur 
+ Licenciatura en Informática
+ Equipo: workboot
+ Proyecto: Tourist Places: Mostrar la belleza de Oaxaca 
  */
 package com.micompany.service;
 
@@ -9,27 +11,29 @@ import com.mycompany.model.IReservaModel;
 import com.mycompany.model.ReservaModelImpl;
 import java.util.List;
 
-
-public class ReservaServiceImpl implements IReservaService{
+//Implementacion de la interfas IReservaService
+public class ReservaServiceImpl implements IReservaService {
+    //Instancia al modelo
     private IReservaModel model = new ReservaModelImpl();
+    //Implemetacion de metodo abstrapto insertarRegistro
     @Override
     public void insertarRegistro(Reservaciones reserva) {
-         model.insertarRegistro(reserva);
+        model.insertarRegistro(reserva);
     }
-
+    //Implemetacion de metodo abstrapto actualizarRegistro
     @Override
     public void actualizarRegistro(Reservaciones reserva) {
         model.actualizarRegistro(reserva);
     }
-
+    //Implemetacion de metodo abstrapto eliminarRegistro
     @Override
     public void eliminarRegistro(Reservaciones reserva) {
         model.eliminarRegistro(reserva);
     }
-
+    //Implemetacion de metodo abstrapto obtenerRegistro
     @Override
     public List<Reservaciones> obtenerRegistro() {
-       return model.obtenerRegistro(); 
+        return model.obtenerRegistro();
     }
-    
+
 }
