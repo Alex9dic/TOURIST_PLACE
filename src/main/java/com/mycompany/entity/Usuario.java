@@ -18,7 +18,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-
+//Consultas a la base de datos
 @Entity
 @Table(name = "usuario")
 @XmlRootElement
@@ -35,8 +35,9 @@ import javax.xml.bind.annotation.XmlRootElement;
             query = "SELECT u FROM Usuario u WHERE u.usuario = :usuario"),
     @NamedQuery(name = "Usuario.findByContrasena", 
             query = "SELECT u FROM Usuario u WHERE u.contrasena = :contrasena")})
+/*Implementacion de metodos abstractos*/
 public class Usuario implements Serializable {
-
+    //Atributos de formulario
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -55,10 +56,10 @@ public class Usuario implements Serializable {
     @Size(max = 50)
     @Column(name = "contrasena")
     private String contrasena;
-
+    //Constructor vacio
     public Usuario() {
     }
-
+    //Implementación de los metodos GET y SET
     public Usuario(Integer idusuario) {
         this.idusuario = idusuario;
     }

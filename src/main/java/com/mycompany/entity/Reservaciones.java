@@ -1,6 +1,8 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ Universidad de la Sierra Sur 
+ Licenciatura en Informática
+ Equipo: workboot
+ Proyecto: Tourist Places: Mostrar la belleza de Oaxaca 
  */
 package com.mycompany.entity;
 
@@ -17,10 +19,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
-/**
- *
- * @author labso11
- */
+//Implementación de consultas a la base de datos 
 @Entity
 @Table(name = "reservaciones")
 @XmlRootElement
@@ -33,8 +32,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Reservaciones.findByLugar", query = "SELECT r FROM Reservaciones r WHERE r.lugar = :lugar"),
     @NamedQuery(name = "Reservaciones.findByCantpersonas", query = "SELECT r FROM Reservaciones r WHERE r.cantpersonas = :cantpersonas"),
     @NamedQuery(name = "Reservaciones.findByAnticipo", query = "SELECT r FROM Reservaciones r WHERE r.anticipo = :anticipo")})
+/*Implementacion de metodos abstractos*/
 public class Reservaciones implements Serializable {
-
+    //Atributos del formulario
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -57,14 +57,14 @@ public class Reservaciones implements Serializable {
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "anticipo")
     private Double anticipo;
-
+ //Constructor vacío
     public Reservaciones() {
     }
 
     public Reservaciones(Integer idreserva) {
         this.idreserva = idreserva;
     }
-
+//Implementación de los metodos SET y GET
     public Integer getIdreserva() {
         return idreserva;
     }
