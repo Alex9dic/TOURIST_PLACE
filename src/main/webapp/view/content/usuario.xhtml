@@ -21,6 +21,29 @@
                     <p:growl id="mimensaje" showDetail="true"/>
                     <div>
                         <h5 style="text-align: center;">Usuarios</h5>
+
+                        <!-- Inicio boton -->
+                        <div class="confor">
+                            <h:panelGrid id="idPanel" columns="2">
+                                <p:outputLabel value="Ingrese el nombre: "></p:outputLabel>
+                                <p:inputText id="idNombre" value="#{usuario.usuario.nombre}" required="true"></p:inputText>
+
+                                <p:outputLabel value="Ingrese su correo: "></p:outputLabel>
+                                <p:inputText id="idCorreo" value="#{usuario.usuario.correo}" required="true"></p:inputText>
+
+                                <p:outputLabel value="Ingrese el rol: "></p:outputLabel>
+                                <p:inputText id="idRol" value="#{usuario.usuario.usuario}" required="true"></p:inputText>
+
+                                <p:outputLabel value="Ingrese la contrasenia: "></p:outputLabel>
+                                <p:password id="toggle" value="#{usuario.usuario.contrasena}" toggleMask="true" redisplay="true"/><br/>
+
+                                <p:commandButton action="#{usuario.crearRegistro()}"
+                                                 value="Guardar Registro"
+                                                 update=""
+                                                 ></p:commandButton>
+                            </h:panelGrid>
+                        </div>
+                        <!-- Fin boton -->
                         <p:dataTable id="idTabla" var="registro" value="#{usuario.listaRegistros}" editable="true"
                                      style="margin-bottom:20px">
                             <p:ajax event="rowEdit" listener="#{usuario.onRowEDit}" update=":form:mimensaje"/>
@@ -87,26 +110,6 @@
                             </p:column>
                         </p:dataTable>
                     </div><!-- Fin de la Tabla -->
-                    <!-- Inicio boton -->
-
-                    <h:panelGrid id="idPanel" columns="2">
-                        <p:outputLabel value="Ingrese el nombre: "></p:outputLabel>
-                        <p:inputText id="idNombre" value="#{usuario.usuario.nombre}"></p:inputText>
-
-                        <p:outputLabel value="Ingrese su correo: "></p:outputLabel>
-                        <p:inputText id="idCorreo" value="#{usuario.usuario.correo}"></p:inputText>
-
-                        <p:outputLabel value="Ingrese el rol: "></p:outputLabel>
-                        <p:inputText id="idRol" value="#{usuario.usuario.usuario}"></p:inputText>
-
-                        <p:outputLabel value="Ingrese la contrasenia: "></p:outputLabel>
-                        <p:inputText id="idContrasena" value="#{usuario.usuario.contrasena}"></p:inputText>
-
-                        <p:commandButton action="#{usuario.crearRegistro()}"
-                                         value="Guardar Registro"
-                                         update=""
-                                         ></p:commandButton>
-                    </h:panelGrid>
                 </h:form>
             </ui:define>
         </ui:composition>
